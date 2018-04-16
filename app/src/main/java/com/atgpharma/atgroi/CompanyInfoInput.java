@@ -144,6 +144,10 @@ public class CompanyInfoInput extends AppCompatActivity
         estimate.setHours_per_week(hours_per_week);
         estimate.setBottles_per_operator(set_bottles);
 
+        estimate.setRoi_percent(ROI);
+        estimate.setPbp(PBP);
+        estimate.setRoi_dollars(ROI_Dollars);
+
         Intent a = new Intent(getApplicationContext(), CalculationResult.class);
         a.putExtra("ROI", ROI);
         a.putExtra("PBP", PBP);
