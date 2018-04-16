@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingBottom="200dp"
+    android:paddingLeft="100dp"
+    android:paddingRight="100dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.atgpharma.atgroi.CalculationResult"
+    tools:showIn="@layout/activity_calculation_result">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@mipmap/blueatg" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Return on Investment (%)"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/return_on_investment"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            android:textSize="24dp"
+            android:gravity="right"
+            android:textAlignment="gravity"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Product Buyback Period (Months)"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/product_buyback_period"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/transparent"
+            android:inputType="number"
+            android:textSize="24dp"
+            android:gravity="right"
+            android:textAlignment="gravity"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Return on Investment ($)"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/return_on_investment_dollars"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:textSize="24dp"
+            android:inputType="number"
+            android:background="@android:color/transparent"
+            android:gravity="right"
+            android:textAlignment="gravity"/>
+
+    </RelativeLayout>
+
+
+
+
+</android.support.v7.widget.LinearLayoutCompat>
