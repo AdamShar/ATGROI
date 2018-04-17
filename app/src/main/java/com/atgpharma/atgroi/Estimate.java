@@ -3,6 +3,7 @@ package com.atgpharma.atgroi; /**
  */
 
 import java.io.Serializable;
+import java.text.NumberFormat;
 
 @SuppressWarnings("serial")
 public class Estimate implements Serializable{
@@ -45,15 +46,16 @@ public class Estimate implements Serializable{
     }
 
     public void setRoi_percent(double roi_percent) {
-        this.roi_percent = Double.toString(roi_percent);
+        this.roi_percent = String.format("%.2f%%", roi_percent);
     }
 
     public void setPbp(double pbp) {
-        this.pbp = Double.toString(pbp);
+        this.pbp =  String.format("%.1f", pbp);
     }
 
     public void setRoi_dollars(double roi_dollars) {
-        this.roi_dollars = Double.toString(roi_dollars);
+        NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        this.roi_dollars = formatter.format(roi_dollars);
     }
 
     public String getEmail() {
@@ -79,7 +81,7 @@ public class Estimate implements Serializable{
 
         formatted += "roi_percent=" + roi_percent + '\n';
         formatted += "pbp=" + pbp + '\n';
-        formatted += "roi_dollars+" + roi_dollars + '\n';
+        formatted += "roi_dollars=" + roi_dollars + '\n';
 
         return formatted;
     }
