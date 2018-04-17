@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -97,17 +96,21 @@ public class CalculationResult extends AppCompatActivity
             File file = new File(path, "ATG.txt");
             file.createNewFile();
 
-            FileOutputStream stream = new FileOutputStream(file);
+            FileOutputStream stream = openFileOutput("ATG.txt", MODE_APPEND);
 
             stream.write(estimate.getFormattedInfo().getBytes());
 
-            Log.d(TAG, "success saving estimate");
+            Log.d(TAG, file.getPath());
+
+            stream.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-    }@Override
+    }
+
+    @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout_calculation);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -120,7 +123,7 @@ public class CalculationResult extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.info_input, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -150,7 +153,8 @@ public class CalculationResult extends AppCompatActivity
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
         } else if (id == R.id.saved) {
-
+            Intent i = new Intent(getApplicationContext(), SavedEstimates.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout_calculation);

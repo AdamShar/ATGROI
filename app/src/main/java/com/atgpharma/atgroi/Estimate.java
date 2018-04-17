@@ -29,6 +29,22 @@ public class Estimate implements Serializable{
         this.phone = phone;
     }
 
+    public Estimate(String[] info){
+        this.name = info[0];
+        this.company = info[1];
+        this.email = info[2];
+        this.phone = info[3];
+
+        this.num_operators = info[4];
+        this.hourly_pay = info[5];
+        this.hours_per_week = info[6];
+        this.bottles_per_operator = info[7];
+
+        this.roi_percent = info[8];
+        this.pbp = info[9];
+        this.roi_dollars = info[10];
+    }
+
     public void setNum_operators(double num_operators) {
         this.num_operators = Double.toString(num_operators);
     }
@@ -67,6 +83,27 @@ public class Estimate implements Serializable{
     }
 
     public String getFormattedInfo() {
+        String formatted;
+
+        formatted = "name=" + name + '\n';
+        formatted += "company=" + company + '\n';
+        formatted += "email=" + email + '\n';
+        formatted += "phone=" + phone + '\n';
+
+        formatted += "num_operators=" + num_operators + '\n';
+        formatted += "hourly_pay=" + hourly_pay + '\n';
+        formatted += "hours_per_week=" + hours_per_week + '\n';
+        formatted += "bottles_per_operator=" + bottles_per_operator + '\n';
+
+        formatted += "roi_percent=" + roi_percent + '\n';
+        formatted += "pbp=" + pbp + '\n';
+        formatted += "roi_dollars=" + roi_dollars + '\n';
+
+        return formatted;
+    }
+
+    @Override
+    public String toString() {
         String formatted;
 
         formatted = "name=" + name + '\n';

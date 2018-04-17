@@ -24,12 +24,16 @@
             android:name=".CompanyInfoInput"
             android:label="@string/title_activity_company_info_input"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".CalculationResult"
             android:label="@string/title_activity_calculation_result"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SavedEstimates"
+            android:label="@string/title_activity_saved_estimates"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

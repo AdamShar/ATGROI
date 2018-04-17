@@ -20,4 +20,5 @@
         <item>CAD</item>
         <item>USD</item>
     </string-array>
+    <string name="title_activity_saved_estimates">SavedEstimates</string>
 </resources>
