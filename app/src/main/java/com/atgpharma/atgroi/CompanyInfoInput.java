@@ -50,7 +50,6 @@ public class CompanyInfoInput extends AppCompatActivity
         final Button button = findViewById(R.id.calculate);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d(TAG, "ADAMLOG");
                 try {
                     int machine = machine_spinner.getSelectedItemPosition();
                     int currency = currency_spinner.getSelectedItemPosition();

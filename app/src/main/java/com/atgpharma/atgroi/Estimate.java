@@ -87,7 +87,18 @@ public class Estimate implements Serializable{
     }
 
     public String getFormattedEmail(){
-        return "hey";
+        String formatted = "Dear " + name + ",\n\n";
+
+        formatted += "You recently filled a ROI form with ATG Pharma on a " + machine_type + ".\n\n";
+        formatted += "You had " + num_operators + " operators working at $" + hourly_pay + "/hour working " + hours_per_week;
+        formatted += " hours a week with an average output of " + bottles_per_operator + " bottles per day.\n\n";
+
+        formatted += "By purchasing a " + machine_type + " you could have a return on investment of " + roi_percent;
+        formatted += " or " + roi_dollars + " and your buyback period would be " + pbp + " months.\n\n";
+        formatted += "Regards,\n\n";
+        formatted += "ATG Pharma";
+
+        return formatted;
     }
 
     public String getFormattedInfo() {

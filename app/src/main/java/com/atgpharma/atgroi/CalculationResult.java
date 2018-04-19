@@ -46,7 +46,6 @@ public class CalculationResult extends AppCompatActivity
         Intent i = getIntent();
         final Estimate estimate = (Estimate)i.getSerializableExtra("currentEstimate");
         SaveEstimate(estimate);
-        final String email = estimate.getFormattedInfo();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -55,11 +54,10 @@ public class CalculationResult extends AppCompatActivity
                 Intent e = new Intent(Intent.ACTION_SENDTO);
                 e.setData(Uri.parse("mailto:" + estimate.getEmail()));
                 e.putExtra(Intent.EXTRA_SUBJECT, "ATG Pharma: Return on Investment");
-                e.putExtra(Intent.EXTRA_TEXT, estimate.getFormattedInfo());
+                e.putExtra(Intent.EXTRA_TEXT, estimate.getFormattedEmail());
                 if(e.resolveActivity(getPackageManager()) != null) {
                     startActivity(Intent.createChooser(e, "Send Email"));
                 }
-                Log.d(TAG, email);
             }
         });
 
