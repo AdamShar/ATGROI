@@ -2,6 +2,8 @@ package com.atgpharma.atgroi; /**
  * Created by Adam on 2018-04-16.
  */
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.text.NumberFormat;
 
@@ -124,8 +126,10 @@ public class Estimate implements Serializable{
 
         formatted += roi_percent + ",";
         formatted += pbp + ",";
-        formatted += roi_dollars + ",";
-        formatted += machine_type + "," + '\n';
+        formatted += roi_dollars.replace(",", "") + ",";
+        formatted += machine_type + '\n';
+
+        Log.d("ADAMLOG", formatted);
 
         return formatted;
     }
