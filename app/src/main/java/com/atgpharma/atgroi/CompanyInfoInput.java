@@ -77,24 +77,29 @@ public class CompanyInfoInput extends AppCompatActivity
 
         double machine_cost = 0;
         double machine_output = 0;
+        String machine_type = "";
 
         if(currency == 0) {
             switch (machine) {
                 case 0:
                     machine_cost = 16925;
                     machine_output = 1200;
+                    machine_type = "RL-301P";
                     break;
                 case 1:
                     machine_cost = 19275;
                     machine_output = 1800;
+                    machine_type = "RL-302P";
                     break;
                 case 2:
                     machine_cost = 4000;
                     machine_output = 500;
+                    machine_type = "ML-1P";
                     break;
                 case 3:
                     machine_cost = 5800;
                     machine_output = 900;
+                    machine_type = "ML-2P";
                     break;
             }
         }else if(currency == 1) {
@@ -151,6 +156,7 @@ public class CompanyInfoInput extends AppCompatActivity
         estimate.setRoi_percent(ROI);
         estimate.setPbp(PBP);
         estimate.setRoi_dollars(ROI_Dollars);
+        estimate.setMachine_type(machine_type);
 
         Intent a = new Intent(getApplicationContext(), CalculationResult.class);
         a.putExtra("ROI", ROI);

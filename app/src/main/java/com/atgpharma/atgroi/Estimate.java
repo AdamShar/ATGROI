@@ -21,6 +21,7 @@ public class Estimate implements Serializable{
     private String roi_percent;
     private String pbp;
     private String roi_dollars;
+    private String machine_type;
 
     public Estimate(String name, String company, String email, String phone){
         this.name = name;
@@ -43,6 +44,7 @@ public class Estimate implements Serializable{
         this.roi_percent = info[8];
         this.pbp = info[9];
         this.roi_dollars = info[10];
+        this.machine_type = info[11];
     }
 
     public void setNum_operators(double num_operators) {
@@ -74,6 +76,10 @@ public class Estimate implements Serializable{
         this.roi_dollars = formatter.format(roi_dollars);
     }
 
+    public void setMachine_type(String machine_type) {
+        this.machine_type = machine_type;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -98,6 +104,28 @@ public class Estimate implements Serializable{
         formatted += "roi_percent=" + roi_percent + '\n';
         formatted += "pbp=" + pbp + '\n';
         formatted += "roi_dollars=" + roi_dollars + '\n';
+        formatted += "machine_type=" + machine_type + '\n';
+
+        return formatted;
+    }
+
+    public String getCSVFormattedInfo() {
+        String formatted;
+
+        formatted = name + ",";
+        formatted += company + ",";
+        formatted += email + ",";
+        formatted += phone + ",";
+
+        formatted += num_operators + ",";
+        formatted += hourly_pay + ",";
+        formatted += hours_per_week + ",";
+        formatted += bottles_per_operator + ",";
+
+        formatted += roi_percent + ",";
+        formatted += pbp + ",";
+        formatted += roi_dollars + ",";
+        formatted += machine_type + "," + '\n';
 
         return formatted;
     }
@@ -106,19 +134,20 @@ public class Estimate implements Serializable{
     public String toString() {
         String formatted;
 
-        formatted = "name=" + name + '\n';
-        formatted += "company=" + company + '\n';
-        formatted += "email=" + email + '\n';
-        formatted += "phone=" + phone + '\n';
+        formatted = "Name: " + name + '\n';
+        formatted += "Company: " + company + '\n';
+        formatted += "Email: " + email + '\n';
+        formatted += "Phone: " + phone + '\n';
 
-        formatted += "num_operators=" + num_operators + '\n';
-        formatted += "hourly_pay=" + hourly_pay + '\n';
-        formatted += "hours_per_week=" + hours_per_week + '\n';
-        formatted += "bottles_per_operator=" + bottles_per_operator + '\n';
+        formatted += "Number of Operators: " + num_operators + '\n';
+        formatted += "Hourly Pay: " + hourly_pay + '\n';
+        formatted += "Hours Per Week: " + hours_per_week + '\n';
+        formatted += "Bottles Per Operator Per Day: " + bottles_per_operator + '\n';
 
-        formatted += "roi_percent=" + roi_percent + '\n';
-        formatted += "pbp=" + pbp + '\n';
-        formatted += "roi_dollars=" + roi_dollars + '\n';
+        formatted += "Return on Investment (%): " + roi_percent + '\n';
+        formatted += "Product Buyback Period (Months): " + pbp + '\n';
+        formatted += "Return on Investment ($): " + roi_dollars + '\n';
+        formatted += "Machine Selected: " + machine_type + '\n';
 
         return formatted;
     }

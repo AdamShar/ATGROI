@@ -96,6 +96,9 @@ public class InfoInput extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.new_roi) {
+            Intent i = new Intent(getApplicationContext(), InfoInput.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
         } else if (id == R.id.saved) {
             Intent i = new Intent(getApplicationContext(), SavedEstimates.class);
             startActivity(i);

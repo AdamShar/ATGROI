@@ -88,28 +88,6 @@ public class CalculationResult extends AppCompatActivity
 
     }
 
-    public void SaveEstimate (Estimate estimate) {
-        try {
-            Context context = getApplicationContext();
-            File path = context.getFilesDir();
-
-            File file = new File(path, "ATG.txt");
-            file.createNewFile();
-
-            FileOutputStream stream = openFileOutput("ATG.txt", MODE_APPEND);
-
-            stream.write(estimate.getFormattedInfo().getBytes());
-
-            Log.d(TAG, file.getPath());
-
-            stream.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout_calculation);
@@ -160,6 +138,28 @@ public class CalculationResult extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout_calculation);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void SaveEstimate (Estimate estimate) {
+        try {
+            Context context = getApplicationContext();
+            File path = context.getFilesDir();
+
+            File file = new File(path, "ATG.txt");
+            file.createNewFile();
+
+            FileOutputStream stream = openFileOutput("ATG.txt", MODE_APPEND);
+
+            stream.write(estimate.getFormattedInfo().getBytes());
+
+            Log.d(TAG, file.getPath());
+
+            stream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
